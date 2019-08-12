@@ -12,4 +12,12 @@ public class BibliotecaTests {
         String result = biblioteca.printWelcomeMsg();
         assertThat(result,is("Welcome to Biblioteca.Your one-stop shop for buying good books in bangalore!"));
     }
+
+    @Test
+    public void should_return_book_list() {
+        Biblioteca biblioteca = new Biblioteca();
+        String expected = "Java\nJavaScript\nC#\nPHP\n";
+        String bookNames = biblioteca.showBookNames();
+        assertThat(bookNames,is(expected));
+    }
 }
