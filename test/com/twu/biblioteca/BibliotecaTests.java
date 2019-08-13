@@ -34,7 +34,8 @@ public class BibliotecaTests {
         Biblioteca biblioteca = new Biblioteca();
         String expected = "0.Quit\n" +
                 "1.List of book\n" +
-                "2.checkout a book";
+                "2.checkout a book\n" +
+                "3.return a book";
         String result = biblioteca.showMenuOptions();
         assertThat(result,is(expected));
     }

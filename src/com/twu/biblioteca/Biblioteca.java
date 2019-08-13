@@ -42,7 +42,8 @@ public class Biblioteca {
     public String showMenuOptions() {
         return "0.Quit\n" +
                 "1.List of book\n" +
-                "2.checkout a book";
+                "2.checkout a book\n" +
+                "3.return a book";
     }
 
     public void start(){
@@ -73,7 +74,10 @@ public class Biblioteca {
         }else if (val==2){
             chooseCheckoutBook();
             return true;
-        }else{
+        }else if (val==3){
+            chooseReturnBook();
+            return true;
+        }else {
             System.out.println("Please select a valid option");
             return false;
         }
@@ -104,5 +108,12 @@ public class Biblioteca {
             }
         }
         return "That is not a valid book to return";
+    }
+
+    public void chooseReturnBook(){
+        System.out.println("input book's name:");
+        Scanner scanner = new Scanner(System.in);
+        String bookName = scanner.next();
+        System.out.println(returnBook(bookName));
     }
 }
