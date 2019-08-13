@@ -77,9 +77,11 @@ public class Biblioteca {
     public String checkoutBook(String bookName) {
         for (Book book : bookList) {
             if (book.getBookName().equals(bookName)&&book.getAvailable()==true){
+                book.setAvailable(false);
                 return "Thank you!Enjoy the book";
             }
         }
         return "Sorry,that book is not available";
     }
+
 }
