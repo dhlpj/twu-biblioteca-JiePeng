@@ -69,4 +69,12 @@ public class BibliotecaTests {
         String result = biblioteca.returnBook("TDD");
         assertThat(result,is(expected));
     }
+
+    @Test
+    public void should_return_unsuccess_message_when_return_book_unsuccessful() {
+        Biblioteca biblioteca = new Biblioteca();
+        String expected = "That is not a valid book to return";
+        String result = biblioteca.returnBook("Jasdf");
+        assertThat(result,is(expected));
+    }
 }

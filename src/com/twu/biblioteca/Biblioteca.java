@@ -103,6 +103,6 @@ public class Biblioteca {
                 return "Thank you for returning the book";
             }
         }
-        return "";
+        return "That is not a valid book to return";
     }
 }
