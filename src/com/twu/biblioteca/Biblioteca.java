@@ -2,6 +2,7 @@ package com.twu.biblioteca;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 import java.util.stream.Collectors;
 
 public class Biblioteca {
@@ -32,5 +33,26 @@ public class Biblioteca {
             booksInfo.append(bookInfo);
         }
         return booksInfo.toString();
+    }
+
+    public String showMenuOptions() {
+        return "1.List of books";
+    }
+
+    public void start(){
+        System.out.println(printWelcomeMsg());
+        System.out.println(showMenuOptions());
+        Scanner scanner = new Scanner(System.in);
+        int option = scanner.nextInt();
+        String msg = checkOption(option);
+        System.out.println(msg);
+    }
+
+    private String checkOption(int option) {
+        switch (option){
+            case 1:
+               return showBookNames();
+            default: return "";
+        }
     }
 }
