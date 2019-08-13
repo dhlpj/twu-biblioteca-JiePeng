@@ -44,4 +44,12 @@ public class BibliotecaTests {
         String result = biblioteca.checkOption("asdfs");
         assertThat(result,is(expected));
     }
+
+    @Test
+    public void should_return_success_message_when_checkout_available_book() {
+        Biblioteca biblioteca = new Biblioteca();
+        String expected = "Thank you!Enjoy the book";
+        String result = biblioteca.checkoutBook("Java");
+        assertThat(result,is(expected));
+    }
 }

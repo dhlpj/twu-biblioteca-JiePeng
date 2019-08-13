@@ -73,4 +73,13 @@ public class Biblioteca {
             default: return "Please select a valid option";
         }
     }
+
+    public String checkoutBook(String bookName) {
+        for (Book book : bookList) {
+            if (book.getBookName().equals(bookName)&&book.getAvailable()==true){
+                return "Thank you!Enjoy the book";
+            }
+        }
+        return "";
+    }
 }
