@@ -49,28 +49,28 @@ public class Biblioteca {
         while(true) {
             Scanner scanner = new Scanner(System.in);
             String option = scanner.nextLine();
-            String msg = checkOption(option);
-            System.out.println(msg);
-            if (!msg.equals("Please select a valid option")){
-                break;
-            }
+            checkOption(option);
         }
 
     }
 
-    public String checkOption(String option) {
+    public boolean checkOption(String option) {
         int val;
         try{
             val = Integer.parseInt(option);
         }catch (Exception e){
-            return "Please select a valid option";
+            return false;
         }
-        switch (val){
-            case 0:
-                return "quit";
-            case 1:
-               return showBookNames();
-            default: return "Please select a valid option";
+        if(val==0){
+            System.out.println("quit");
+            System.exit(0);
+            return true;
+        }else if (val==1){
+            System.out.println(showBookNames());
+            return true;
+        }else{
+            System.out.println("Please select a valid option");
+            return false;
         }
     }
 
