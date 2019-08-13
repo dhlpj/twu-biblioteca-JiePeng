@@ -36,7 +36,7 @@ public class Biblioteca {
     }
 
     public String showMenuOptions() {
-        return "1.List of books";
+        return "0.Quit\n1.List of books";
     }
 
     public void start(){
@@ -62,6 +62,8 @@ public class Biblioteca {
             return "Please select a valid option";
         }
         switch (val){
+            case 0:
+                return "quit";
             case 1:
                return showBookNames();
             default: return "Please select a valid option";
