@@ -14,7 +14,7 @@ public class BibliotecaTests {
     }
 
     @Test
-    public void should_return_book_list() {
+    public void should_return_book_list_when_some_book_checked_out() {
         Biblioteca biblioteca = new Biblioteca();
         String expected = "Java\nJavaScript\nC#\nPHP\n";
         String bookNames = biblioteca.showBookNames();
@@ -32,7 +32,7 @@ public class BibliotecaTests {
     @Test
     public void should_return_menu_options() {
         Biblioteca biblioteca = new Biblioteca();
-        String expected = "1.List of books";
+        String expected = "0.Quit\n1.List of books";
         String result = biblioteca.showMenuOptions();
         assertThat(result,is(expected));
     }

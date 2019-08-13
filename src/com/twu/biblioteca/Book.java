@@ -5,12 +5,14 @@ public class Book {
     private String bookName;
     private String author;
     private Integer publishYear;
+    private Boolean available;
 
-    public Book(Integer id, String bookName, String author, Integer publishYear) {
+    public Book(Integer id, String bookName, String author, Integer publishYear,Boolean available) {
         this.id = id;
         this.bookName = bookName;
         this.author = author;
         this.publishYear = publishYear;
+        this.available = available;
     }
 
     public Integer getId() {
@@ -43,5 +45,13 @@ public class Book {
 
     public void setPublishYear(Integer publishYear) {
         this.publishYear = publishYear;
+    }
+
+    public Boolean getAvailable() {
+        return available;
+    }
+
+    public void setAvailable(Boolean available) {
+        this.available = available;
     }
 }
