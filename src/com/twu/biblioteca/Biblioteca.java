@@ -95,4 +95,14 @@ public class Biblioteca {
         String bookName = scanner.next();
         System.out.println(checkoutBook(bookName));
     }
+
+    public String returnBook(String bookName) {
+        for (Book book : bookList) {
+            if (book.getBookName().equals(bookName)&&book.getAvailable()==false){
+                book.setAvailable(true);
+                return "Thank you for returning the book";
+            }
+        }
+        return "";
+    }
 }

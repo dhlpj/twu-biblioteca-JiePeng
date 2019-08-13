@@ -61,4 +61,12 @@ public class BibliotecaTests {
         String result = biblioteca.checkoutBook("TDD");
         assertThat(result,is(expected));
     }
+
+    @Test
+    public void should_return_success_message_when_return_book_successful() {
+        Biblioteca biblioteca = new Biblioteca();
+        String expected = "Thank you for returning the book";
+        String result = biblioteca.returnBook("TDD");
+        assertThat(result,is(expected));
+    }
 }
