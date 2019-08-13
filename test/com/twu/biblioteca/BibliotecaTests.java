@@ -52,4 +52,12 @@ public class BibliotecaTests {
         String result = biblioteca.checkoutBook("Java");
         assertThat(result,is(expected));
     }
+
+    @Test
+    public void should_return_unsuccess_message_when_checkout_not_available_book() {
+        Biblioteca biblioteca = new Biblioteca();
+        String expected = "Sorry,that book is not available";
+        String result = biblioteca.checkoutBook("TDD");
+        assertThat(result,is(expected));
+    }
 }
