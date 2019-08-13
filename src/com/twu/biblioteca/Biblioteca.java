@@ -23,4 +23,14 @@ public class Biblioteca {
     public String showBookNames() {
         return bookList.stream().map(Book::getBookName).collect(Collectors.joining("\n","","\n"));
     }
+
+    public String showBooksAllInfo() {
+        StringBuilder booksInfo = new StringBuilder();
+        String delimiter = "|";
+        for (Book book : bookList) {
+            String bookInfo = book.getBookName()+delimiter+book.getAuthor()+delimiter+book.getPublishYear()+"\n";
+            booksInfo.append(bookInfo);
+        }
+        return booksInfo.toString();
+    }
 }

@@ -20,4 +20,12 @@ public class BibliotecaTests {
         String bookNames = biblioteca.showBookNames();
         assertThat(bookNames,is(expected));
     }
+
+    @Test
+    public void should_return_book_list_with_more_info() {
+        Biblioteca biblioteca = new Biblioteca();
+        String expected = "Java|Tina|2019\nJavaScript|Bob|2018\nC#|Mary|2016\nPHP|XiaoMing|2017\n";
+        String booksAllInfo = biblioteca.showBooksAllInfo();
+        assertThat(booksAllInfo,is(expected));
+    }
 }
