@@ -6,8 +6,8 @@ import java.util.Scanner;
 import java.util.stream.Collectors;
 
 public class Biblioteca {
-    private static List<Book> bookList = new ArrayList<Book>();
-    static {
+    private  List<Book> bookList = new ArrayList<Book>();
+    {
         Book book1 = new Book(1,"Java","Tina",2019,true);
         Book book2 = new Book(2,"JavaScript","Bob",2018,true);
         Book book3 = new Book(3,"C#","Mary",2016,true);
