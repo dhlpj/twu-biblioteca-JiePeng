@@ -37,4 +37,11 @@ public class BibliotecaTests {
         assertThat(result,is(expected));
     }
 
+    @Test
+    public void should_return_invalid_message_when_chose_an_invalid_option() {
+        Biblioteca biblioteca = new Biblioteca();
+        String expected = "Please select a valid option";
+        String result = biblioteca.checkOption("asdfs");
+        assertThat(result,is(expected));
+    }
 }

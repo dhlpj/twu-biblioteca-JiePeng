@@ -42,17 +42,29 @@ public class Biblioteca {
     public void start(){
         System.out.println(printWelcomeMsg());
         System.out.println(showMenuOptions());
-        Scanner scanner = new Scanner(System.in);
-        int option = scanner.nextInt();
-        String msg = checkOption(option);
-        System.out.println(msg);
+        while(true) {
+            Scanner scanner = new Scanner(System.in);
+            String option = scanner.nextLine();
+            String msg = checkOption(option);
+            System.out.println(msg);
+            if (!msg.equals("Please select a valid option")){
+                break;
+            }
+        }
+
     }
 
-    private String checkOption(int option) {
-        switch (option){
+    public String checkOption(String option) {
+        int val;
+        try{
+            val = Integer.parseInt(option);
+        }catch (Exception e){
+            return "Please select a valid option";
+        }
+        switch (val){
             case 1:
                return showBookNames();
-            default: return "";
+            default: return "Please select a valid option";
         }
     }
 }
