@@ -32,7 +32,9 @@ public class BibliotecaTests {
     @Test
     public void should_return_menu_options() {
         Biblioteca biblioteca = new Biblioteca();
-        String expected = "0.Quit\n1.List of books";
+        String expected = "0.Quit\n" +
+                "1.List of book\n" +
+                "2.checkout a book";
         String result = biblioteca.showMenuOptions();
         assertThat(result,is(expected));
     }
