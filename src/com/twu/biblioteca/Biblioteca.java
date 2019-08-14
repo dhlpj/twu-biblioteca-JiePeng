@@ -132,7 +132,7 @@ public class Biblioteca {
     public void chooseReturnBook(){
         System.out.println("input book's name:");
         Scanner scanner = new Scanner(System.in);
-        String bookName = scanner.next();
+        String bookName = scanner.nextLine();
         System.out.println(returnBook(bookName));
     }
 
@@ -161,7 +161,7 @@ public class Biblioteca {
     public void chooseCheckoutMovie(){
         System.out.println("input movie's name:");
         Scanner scanner = new Scanner(System.in);
-        String movieName = scanner.next();
+        String movieName = scanner.nextLine();
         System.out.println(checkoutMovie(movieName));
     }
 }
