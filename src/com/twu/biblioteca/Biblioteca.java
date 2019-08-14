@@ -35,7 +35,7 @@ public class Biblioteca {
     }
 
     public String showBookNames() {
-        return bookList.stream().filter(Book::getAvailable).map(Book::getBookName).collect(Collectors.joining("\n","","\n"));
+        return bookList.stream().map(Book::getBookName).collect(Collectors.joining("\n","","\n"));
     }
 
     public String showBooksAllInfo() {
@@ -140,10 +140,8 @@ public class Biblioteca {
         StringBuilder moviesInfo = new StringBuilder();
         String delimiter = "|";
         for (Movie movie : movieList) {
-            if (movie.getAvailable()){
-                String movieInfo = movie.getMovieName()+delimiter+movie.getYear()+delimiter+movie.getDirector()+delimiter+movie.getMovieRating()+"\n";
-                moviesInfo.append(movieInfo);
-            }
+            String movieInfo = movie.getMovieName()+delimiter+movie.getYear()+delimiter+movie.getDirector()+delimiter+movie.getMovieRating()+"\n";
+            moviesInfo.append(movieInfo);
         }
         return moviesInfo.toString();
     }

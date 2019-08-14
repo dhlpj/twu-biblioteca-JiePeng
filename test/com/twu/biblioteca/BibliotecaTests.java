@@ -22,7 +22,7 @@ public class BibliotecaTests {
 
     @Test
     public void should_return_book_list_when_some_book_checked_out() {
-        String expected = "Java\nJavaScript\nC#\nPHP\n";
+        String expected = "Java\nJavaScript\nC#\nPHP\nTDD\n";
         String bookNames = biblioteca.showBookNames();
         assertThat(bookNames, is(expected));
     }
@@ -84,6 +84,7 @@ public class BibliotecaTests {
     public void should_return_movie_list() {
         String expected = "Avengers: Endgame|2019|Anthony Russo|8.6\n" +
                 "The Lion King|2019|Jon Favreau|7.1\n" +
+                "Fast & Furious Presents: Hobbs & Shaw|2019|David Leitch|6.9\n" +
                 "Spider-Man: Far From Home|2019|Jon Watts|7.9\n" +
                 "Crawl|2019| Alexandre Aja|6.6\n";
         String result = biblioteca.showMovieList();
