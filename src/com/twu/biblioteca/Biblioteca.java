@@ -55,7 +55,8 @@ public class Biblioteca {
                 "1.List of book\n" +
                 "2.checkout a book\n" +
                 "3.return a book\n" +
-                "4.List of movie";
+                "4.List of movie\n" +
+                "5.checkout a movie";
     }
 
     public void start(){
@@ -91,6 +92,9 @@ public class Biblioteca {
             return true;
         }else if (val==4){
             System.out.println(showMovieList());
+            return true;
+        }else if (val==5){
+            chooseCheckoutMovie();
             return true;
         }else{
             System.out.println("Please select a valid option");
@@ -142,5 +146,22 @@ public class Biblioteca {
             }
         }
         return moviesInfo.toString();
+    }
+
+    public String checkoutMovie(String movieName) {
+        for (Movie movie : movieList) {
+            if (movie.getMovieName().equals(movieName)&&movie.getAvailable()==true){
+                movie.setAvailable(false);
+                return "Thank you!Enjoy the movie";
+            }
+        }
+        return "Sorry,that movie is not available";
+    }
+
+    public void chooseCheckoutMovie(){
+        System.out.println("input movie's name:");
+        Scanner scanner = new Scanner(System.in);
+        String movieName = scanner.next();
+        System.out.println(checkoutMovie(movieName));
     }
 }

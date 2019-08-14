@@ -40,7 +40,8 @@ public class BibliotecaTests {
                 "1.List of book\n" +
                 "2.checkout a book\n" +
                 "3.return a book\n" +
-                "4.List of movie";
+                "4.List of movie\n" +
+                "5.checkout a movie";
         String result = biblioteca.showMenuOptions();
         assertThat(result, is(expected));
     }
@@ -86,6 +87,20 @@ public class BibliotecaTests {
                 "Spider-Man: Far From Home|2019|Jon Watts|7.9\n" +
                 "Crawl|2019| Alexandre Aja|6.6\n";
         String result = biblioteca.showMovieList();
+        assertThat(result, is(expected));
+    }
+
+    @Test
+    public void should_return_success_message_when_checkout_available_movie() {
+        String expected = "Thank you!Enjoy the movie";
+        String result = biblioteca.checkoutMovie("Avengers: Endgame");
+        assertThat(result, is(expected));
+    }
+
+    @Test
+    public void should_return_unsuccess_message_when_checkout_not_available_movie() {
+        String expected = "Sorry,that movie is not available";
+        String result = biblioteca.checkoutMovie("Fast & Furious Presents: Hobbs & Shaw");
         assertThat(result, is(expected));
     }
 }
