@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 
 public class Biblioteca {
     private  List<Book> bookList = new ArrayList<Book>();
+    private List<Movie> movieList = new ArrayList<>();
     {
         Book book1 = new Book(1,"Java","Tina",2019,true);
         Book book2 = new Book(2,"JavaScript","Bob",2018,true);
@@ -18,6 +19,16 @@ public class Biblioteca {
         bookList.add(book3);
         bookList.add(book4);
         bookList.add(book5);
+        Movie movie1 = new Movie("Avengers: Endgame",2019,"Anthony Russo",8.6f,true);
+        Movie movie2 = new Movie("The Lion King",2019,"Jon Favreau",7.1f,true);
+        Movie movie3 = new Movie("Fast & Furious Presents: Hobbs & Shaw",2019,"David Leitch",6.9f,false);
+        Movie movie4 = new Movie("Spider-Man: Far From Home",2019,"Jon Watts",7.9f,true);
+        Movie movie5 = new Movie("Crawl",2019," Alexandre Aja",6.6f,true);
+        movieList.add(movie1);
+        movieList.add(movie2);
+        movieList.add(movie3);
+        movieList.add(movie4);
+        movieList.add(movie5);
     }
     public String printWelcomeMsg() {
         return "Welcome to Biblioteca.Your one-stop shop for buying good books in bangalore!";
@@ -43,7 +54,8 @@ public class Biblioteca {
         return "0.Quit\n" +
                 "1.List of book\n" +
                 "2.checkout a book\n" +
-                "3.return a book";
+                "3.return a book\n" +
+                "4.List of movie";
     }
 
     public void start(){
@@ -77,7 +89,10 @@ public class Biblioteca {
         }else if (val==3){
             chooseReturnBook();
             return true;
-        }else {
+        }else if (val==4){
+            System.out.println(showMovieList());
+            return true;
+        }else{
             System.out.println("Please select a valid option");
             return false;
         }
@@ -115,5 +130,17 @@ public class Biblioteca {
         Scanner scanner = new Scanner(System.in);
         String bookName = scanner.next();
         System.out.println(returnBook(bookName));
+    }
+
+    public String showMovieList() {
+        StringBuilder moviesInfo = new StringBuilder();
+        String delimiter = "|";
+        for (Movie movie : movieList) {
+            if (movie.getAvailable()){
+                String movieInfo = movie.getMovieName()+delimiter+movie.getYear()+delimiter+movie.getDirector()+delimiter+movie.getMovieRating()+"\n";
+                moviesInfo.append(movieInfo);
+            }
+        }
+        return moviesInfo.toString();
     }
 }

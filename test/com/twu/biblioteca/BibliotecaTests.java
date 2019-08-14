@@ -39,14 +39,15 @@ public class BibliotecaTests {
         String expected = "0.Quit\n" +
                 "1.List of book\n" +
                 "2.checkout a book\n" +
-                "3.return a book";
+                "3.return a book\n" +
+                "4.List of movie";
         String result = biblioteca.showMenuOptions();
         assertThat(result, is(expected));
     }
 
     @Test
     public void should_return_invalid_message_when_chose_an_invalid_option() {
-        boolean result = biblioteca.checkOption("asdfs");
+        boolean result = biblioteca.checkOption("sdaf");
         assertThat(result, is(false));
     }
 
@@ -75,6 +76,16 @@ public class BibliotecaTests {
     public void should_return_unsuccess_message_when_return_book_unsuccessful() {
         String expected = "That is not a valid book to return";
         String result = biblioteca.returnBook("Jasdf");
+        assertThat(result, is(expected));
+    }
+
+    @Test
+    public void should_return_movie_list() {
+        String expected = "Avengers: Endgame|2019|Anthony Russo|8.6\n" +
+                "The Lion King|2019|Jon Favreau|7.1\n" +
+                "Spider-Man: Far From Home|2019|Jon Watts|7.9\n" +
+                "Crawl|2019| Alexandre Aja|6.6\n";
+        String result = biblioteca.showMovieList();
         assertThat(result, is(expected));
     }
 }
