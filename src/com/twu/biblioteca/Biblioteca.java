@@ -6,6 +6,7 @@ import java.util.Scanner;
 import java.util.stream.Collectors;
 
 public class Biblioteca {
+    private boolean isContinue = true;
     private User currentUser;
     private  List<Book> bookList = new ArrayList<Book>();
     private List<Movie> movieList = new ArrayList<>();
@@ -78,7 +79,12 @@ public class Biblioteca {
             System.out.println(showMenuOptions());
             Scanner scanner = new Scanner(System.in);
             String option = scanner.nextLine();
-            checkOption(option);
+            if (checkOption(option)==false){
+                System.out.println("Please select a valid option");
+            }
+            if (isContinue==false){
+                break;
+            }
         }
 
     }
@@ -92,7 +98,7 @@ public class Biblioteca {
         }
         if(val==0){
             System.out.println("quit");
-            System.exit(0);
+            isContinue = false;
             return true;
         }else if (val==1){
             System.out.println(showBookNames());
@@ -119,7 +125,6 @@ public class Biblioteca {
             chooseShowCurrentUserInfo();
             return true;
         }else{
-            System.out.println("Please select a valid option");
             return false;
         }
     }
