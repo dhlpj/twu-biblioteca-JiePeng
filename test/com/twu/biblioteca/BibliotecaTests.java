@@ -41,7 +41,8 @@ public class BibliotecaTests {
                 "2.checkout a book\n" +
                 "3.return a book\n" +
                 "4.List of movie\n" +
-                "5.checkout a movie";
+                "5.checkout a movie\n" +
+                "6.login";
         String result = biblioteca.showMenuOptions();
         assertThat(result, is(expected));
     }
@@ -103,5 +104,22 @@ public class BibliotecaTests {
         String expected = "Sorry,that movie is not available";
         String result = biblioteca.checkoutMovie("Fast & Furious Presents: Hobbs & Shaw");
         assertThat(result, is(expected));
+    }
+
+    @Test
+    public void should_customer_login_when_input_correct_username_and_password() {
+        String username = "Jack";
+        String password = "123456";
+        biblioteca.login(username,password);
+        assertThat(biblioteca.getCurrentUser().getUsername(), is(username));
+        assertThat(biblioteca.getCurrentUser().getPassword(), is(password));
+    }
+
+    @Test
+    public void should_return_true_when_customer_has_login() {
+        String username = "Jack";
+        String password = "123456";
+        biblioteca.login(username,password);
+        assertThat(biblioteca.islogin(), is(true));
     }
 }

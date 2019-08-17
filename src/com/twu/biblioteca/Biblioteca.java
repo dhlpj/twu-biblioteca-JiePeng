@@ -6,8 +6,10 @@ import java.util.Scanner;
 import java.util.stream.Collectors;
 
 public class Biblioteca {
+    private User currentUser;
     private  List<Book> bookList = new ArrayList<Book>();
     private List<Movie> movieList = new ArrayList<>();
+    private List<User> userList = new ArrayList<>();
     {
         Book book1 = new Book(1,"Java","Tina",2019,true);
         Book book2 = new Book(2,"JavaScript","Bob",2018,true);
@@ -29,6 +31,12 @@ public class Biblioteca {
         movieList.add(movie3);
         movieList.add(movie4);
         movieList.add(movie5);
+        User user1 = new User("Jack","123456");
+        User user2 = new User("Tony","111111");
+        User user3 = new User("Sam","222222");
+        userList.add(user1);
+        userList.add(user2);
+        userList.add(user3);
     }
     public String printWelcomeMsg() {
         return "Welcome to Biblioteca.Your one-stop shop for buying good books in bangalore!";
@@ -56,7 +64,8 @@ public class Biblioteca {
                 "2.checkout a book\n" +
                 "3.return a book\n" +
                 "4.List of movie\n" +
-                "5.checkout a movie";
+                "5.checkout a movie\n" +
+                "6.login";
     }
 
     public void start(){
@@ -96,6 +105,9 @@ public class Biblioteca {
         }else if (val==5){
             chooseCheckoutMovie();
             return true;
+        }else if (val==6){
+            chooseLogin();
+            return true;
         }else{
             System.out.println("Please select a valid option");
             return false;
@@ -113,6 +125,10 @@ public class Biblioteca {
     }
 
     public void chooseCheckoutBook(){
+        if (!islogin()){
+            System.out.println("Please login first!");
+            return;
+        }
         System.out.println("input book's name:");
         Scanner scanner = new Scanner(System.in);
         String bookName = scanner.next();
@@ -130,6 +146,10 @@ public class Biblioteca {
     }
 
     public void chooseReturnBook(){
+        if (!islogin()){
+            System.out.println("Please login first!");
+            return;
+        }
         System.out.println("input book's name:");
         Scanner scanner = new Scanner(System.in);
         String bookName = scanner.nextLine();
@@ -161,5 +181,36 @@ public class Biblioteca {
         Scanner scanner = new Scanner(System.in);
         String movieName = scanner.nextLine();
         System.out.println(checkoutMovie(movieName));
+    }
+
+    public void login(String username, String password) {
+        for (User user : userList) {
+            if (user.getUsername().equals(username)&&user.getPassword().equals(password)){
+                currentUser = user;
+                break;
+            }
+        }
+    }
+
+    public User getCurrentUser() {
+        return this.currentUser;
+    }
+
+    public Boolean islogin() {
+        return currentUser!=null;
+    }
+
+    public void chooseLogin(){
+        System.out.println("input library number:");
+        Scanner scanner = new Scanner(System.in);
+        String username = scanner.nextLine();
+        System.out.println("input your password:");
+        String password = scanner.nextLine();
+        login(username,password);
+        if (islogin()){
+            System.out.println("Login successfully");
+        }else{
+            System.out.println("Login failed");
+        }
     }
 }
