@@ -56,6 +56,9 @@ public class BibliotecaTests {
 
     @Test
     public void should_return_success_message_when_checkout_available_book() {
+        String username = "111-1234";
+        String password = "123456";
+        biblioteca.login(username,password);
         String expected = "Thank you!Enjoy the book";
         String result = biblioteca.checkoutBook("Java");
         assertThat(result, is(expected));
@@ -70,6 +73,9 @@ public class BibliotecaTests {
 
     @Test
     public void should_return_success_message_when_return_book_successful() {
+        String username = "111-1234";
+        String password = "123456";
+        biblioteca.login(username,password);
         String expected = "Thank you for returning the book";
         String result = biblioteca.returnBook("TDD");
         assertThat(result, is(expected));

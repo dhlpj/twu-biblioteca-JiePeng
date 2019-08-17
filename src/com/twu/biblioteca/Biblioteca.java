@@ -124,6 +124,7 @@ public class Biblioteca {
         for (Book book : bookList) {
             if (book.getBookName().equals(bookName)&&book.getAvailable()==true){
                 book.setAvailable(false);
+                currentUser.getBookList().add(book);
                 return "Thank you!Enjoy the book";
             }
         }
@@ -143,8 +144,9 @@ public class Biblioteca {
 
     public String returnBook(String bookName) {
         for (Book book : bookList) {
-            if (book.getBookName().equals(bookName)&&book.getAvailable()==false){
+            if (book.getBookName().equals(bookName)&&book.getAvailable()==false&&currentUser.getBookList().contains(book)){
                 book.setAvailable(true);
+                currentUser.getBookList().remove(book);
                 return "Thank you for returning the book";
             }
         }
