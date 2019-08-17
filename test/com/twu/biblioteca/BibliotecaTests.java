@@ -126,7 +126,7 @@ public class BibliotecaTests {
 
     @Test
     public void should_return_customers_who_checked_out_books() {
-        String expected = "111-1234";
+        String expected = "111-1234\n";
         String result = biblioteca.showUsersWhoCheckoutBooks();
         assertThat(result, is(expected));
     }

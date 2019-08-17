@@ -221,13 +221,7 @@ public class Biblioteca {
     }
 
     public String showUsersWhoCheckoutBooks() {
-        StringBuilder usernameList = new StringBuilder();
-        for (User user : userList) {
-            if (user.getBookList().size()!=0) {
-                usernameList.append(user.getUsername());
-            }
-        }
-        return usernameList.toString();
+        return userList.stream().filter(user -> user.getBookList().size()!=0).map(User::getUsername).collect(Collectors.joining("\n","","\n"));
     }
 
     public void chooseShowUsersWhoCheckoutBooks(){
