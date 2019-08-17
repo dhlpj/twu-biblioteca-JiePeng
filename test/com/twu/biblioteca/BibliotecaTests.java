@@ -43,7 +43,8 @@ public class BibliotecaTests {
                 "4.List of movie\n" +
                 "5.checkout a movie\n" +
                 "6.login\n" +
-                "7.List of users who checked out books";
+                "7.List of users who checked out books\n" +
+                "8.Show currentUser information";
         String result = biblioteca.showMenuOptions();
         assertThat(result, is(expected));
     }
@@ -134,6 +135,16 @@ public class BibliotecaTests {
     public void should_return_customers_who_checked_out_books() {
         String expected = "111-1234\n";
         String result = biblioteca.showUsersWhoCheckoutBooks();
+        assertThat(result, is(expected));
+    }
+
+    @Test
+    public void should_return_user_information_when_login() {
+        String username = "111-1234";
+        String password = "123456";
+        String expected = "User{name='Jack', email='1234s@gmail.com', phone='25932432'}";
+        biblioteca.login(username,password);
+        String result = biblioteca.showCurrentUserInfo();
         assertThat(result, is(expected));
     }
 }

@@ -33,9 +33,9 @@ public class Biblioteca {
         movieList.add(movie5);
         ArrayList<Book> checkedoutBooks = new ArrayList<>();
         checkedoutBooks.add(book5);
-        User user1 = new User("111-1234","123456",checkedoutBooks);
-        User user2 = new User("222-2345","111111");
-        User user3 = new User("333-3456","222222");
+        User user1 = new User("111-1234","123456",checkedoutBooks,"Jack","1234s@gmail.com","25932432");
+        User user2 = new User("222-2345","111111","Tom","2345@gmail.com","32146758");
+        User user3 = new User("333-3456","222222","Jerry","3456@gmail.com","76983524");
         userList.add(user1);
         userList.add(user2);
         userList.add(user3);
@@ -68,7 +68,8 @@ public class Biblioteca {
                 "4.List of movie\n" +
                 "5.checkout a movie\n" +
                 "6.login\n" +
-                "7.List of users who checked out books";
+                "7.List of users who checked out books\n" +
+                "8.Show currentUser information";
     }
 
     public void start(){
@@ -114,7 +115,10 @@ public class Biblioteca {
         }else if (val==7){
             chooseShowUsersWhoCheckoutBooks();
             return true;
-        }else {
+        }else if (val==8){
+            chooseShowCurrentUserInfo();
+            return true;
+        }else{
             System.out.println("Please select a valid option");
             return false;
         }
@@ -228,5 +232,17 @@ public class Biblioteca {
 
     public void chooseShowUsersWhoCheckoutBooks(){
         System.out.println(showUsersWhoCheckoutBooks());
+    }
+
+    public String showCurrentUserInfo() {
+        return currentUser.toString();
+    }
+    public void chooseShowCurrentUserInfo(){
+        if(islogin()){
+            System.out.println(showCurrentUserInfo());
+        }
+        else{
+            System.out.println("Please login first!");
+        }
     }
 }
