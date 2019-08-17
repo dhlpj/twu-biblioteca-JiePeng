@@ -31,9 +31,9 @@ public class Biblioteca {
         movieList.add(movie3);
         movieList.add(movie4);
         movieList.add(movie5);
-        User user1 = new User("Jack","123456");
-        User user2 = new User("Tony","111111");
-        User user3 = new User("Sam","222222");
+        User user1 = new User("111-1234","123456");
+        User user2 = new User("222-2345","111111");
+        User user3 = new User("333-3456","222222");
         userList.add(user1);
         userList.add(user2);
         userList.add(user3);

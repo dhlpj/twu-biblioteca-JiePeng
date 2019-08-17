@@ -108,7 +108,7 @@ public class BibliotecaTests {
 
     @Test
     public void should_customer_login_when_input_correct_username_and_password() {
-        String username = "Jack";
+        String username = "111-1234";
         String password = "123456";
         biblioteca.login(username,password);
         assertThat(biblioteca.getCurrentUser().getUsername(), is(username));
@@ -117,7 +117,7 @@ public class BibliotecaTests {
 
     @Test
     public void should_return_true_when_customer_has_login() {
-        String username = "Jack";
+        String username = "111-1234";
         String password = "123456";
         biblioteca.login(username,password);
         assertThat(biblioteca.islogin(), is(true));
