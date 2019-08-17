@@ -42,7 +42,8 @@ public class BibliotecaTests {
                 "3.return a book\n" +
                 "4.List of movie\n" +
                 "5.checkout a movie\n" +
-                "6.login";
+                "6.login\n" +
+                "7.List of users who checked out books";
         String result = biblioteca.showMenuOptions();
         assertThat(result, is(expected));
     }
@@ -121,5 +122,12 @@ public class BibliotecaTests {
         String password = "123456";
         biblioteca.login(username,password);
         assertThat(biblioteca.islogin(), is(true));
+    }
+
+    @Test
+    public void should_return_customers_who_checked_out_books() {
+        String expected = "111-1234";
+        String result = biblioteca.showUsersWhoCheckoutBooks();
+        assertThat(result, is(expected));
     }
 }
